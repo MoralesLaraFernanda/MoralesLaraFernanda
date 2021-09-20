@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class ProyectosED {
+
+ public static void main(String[] args)  { 
+Scanner teclado = new Scanner (System.in);  
+int tam = 0, opt = 0;
+
+do {
+    System.out.println("1 - LLenar \n"
++ "2 - Mostrar \n"
++ "3 - Eliminar \n"
++ "4 - Salir\n");
+tam = teclado.nextInt();
+int valor=0;
+char a ='Z';
+switch (tam) {
+        case 1 :
+         if (tam == 1){
+         System.out.println("Valores Agregados");
+         valor= teclado.nextInt();
+                 if (valor == 1){
+                 System.out.println("Pila llena");
+                 }else{ 
+                  if (valor == 2){
+          for ( char car = 'Z'; car>='A';car--){
+               System.out.println(car); 
+          }
+                  }else {
+                  if (valor == 3){
+     System.out.println("Dato eliminado   " +(a--));
+                  }
+                 }
+                 }
+                 }
+         
+    break;
+       case 2: 
+        if (tam == 2)
+         System.out.println("Pila vacia");
+         break;
+
+            case 3: 
+        if(tam == 3){
+          System.out.println("Pila vacia");
+        }
+            break;
+}
+}while(tam !=4);
+}
+}
