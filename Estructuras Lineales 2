@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+public class ProyectosED {
+
+int tope = 0;
+int contador = 0;
+int contadorrepetida = 0;
+//agregar el abecedario en un vector pila
+char pilabc[] = new char[26];
+public void LLenar() {
+    //char letra = 'A'; 
+    for (int i = 0; i < 26; i++) {
+        char c = (char) (Math.random() * 26 + 'A');
+        if (tope <= 26) {
+            pilabc[tope] = c;
+            c++;
+            tope++;
+        } else {
+            System.out.println("pila llena");
+            break;
+            
+        }
+    }
+    System.out.println("valores agregados");
+   
+}
+
+ public void Eliminar() {
+     for (int i = tope; i <= tope; i++) {
+         if (tope > 0) {
+     System.out.println("dato eliminado..." + pilabc[tope - 1]);
+       tope--;
+       } else {
+       System.out.println("no hay elementos para eliminar....");
+       break;
+     }
+     }
+     System.out.println("valor eliminado");
+     }
+ public void Mostrar() {
+    for (int i = tope - 1; i >= 0; i--) {
+        System.out.print(" " + pilabc[i]);
+    }
+}
+ public void Repetida() {
+    for (int i = 0; i < pilabc.length; i++) {
+        if (tope > 0) {
+        char letra;
+        for(int j = 0; j < pilabc.length; j++){
+                if(pilabc[i]==pilabc[j]){
+                    
+                    contador++;
+            }
+                if(contadorrepetida < contador) { //Si la letra actual superó a la que había antes
+                contadorrepetida = contador; //Actualiza el contador de repeticiones con el número máximo
+                letra = pilabc[i];
+        }
+        }
+        System.out.println("La letra " + pilabc[i] + " se repite "+ contador + " veces.");
+        contador= 0;
+            }else{
+           System.out.println("pila vacia");
+           break;
+        }
+    }
+}
+public static void main(String[] args) {
+  ProyectosED c = new ProyectosED (); 
+  Scanner sc = new Scanner(System.in);
+  
+  int opt=0;
+   do {
+        System.out.println("\n1 llenar\n"
+        +"2 Eliminar \n"
+                + "3 Mostrar \n"
+        + "4 Repetida \n"
+        +"5 Salir \n");
+        switch (opt = sc.nextInt()) {
+            case 1:
+                c.LLenar();
+                break; 
+            case 2:
+                c.Eliminar();
+                break;
+            case 3:
+                c.Mostrar();
+                break;
+            case 4:
+                c.Repetida();
+        }
+    } while (opt != 5);
+}
+}
